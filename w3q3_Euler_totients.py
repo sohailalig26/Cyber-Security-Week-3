@@ -1,0 +1,15 @@
+def euler_totient(n):
+    result = n
+    p = 2
+    while p * p <= n:
+        if n % p == 0:
+            while n % p == 0:
+                n //= p
+            result -= result // p
+        p += 1
+    if n > 1:
+        result -= result // n
+    return result
+
+num = int(input("Enter a number to calculate its Euler's Totient: "))
+print("Euler's Totient of", num, "is", euler_totient(num))
